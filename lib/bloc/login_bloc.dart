@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences_sample/bloc/authorization_bloc.dart';
+import 'package:shared_preferences_sample/model/user.dart';
 import 'package:shared_preferences_sample/provider/repository.dart';
 
 class LoginBloc {
@@ -32,7 +33,12 @@ class LoginBloc {
   login(String email, String password) async {
     String token = await repository.login(email, password);
     _loadingData.sink.add(false);
-    authBloc.openSession(token);
+
+    var userModel = User();
+    userModel.email = email;
+    userModel.token = token;
+
+    authBloc.openSession(userModel);
   }
 
   void dispose() {

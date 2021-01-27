@@ -6,6 +6,8 @@ import 'package:shared_preferences_sample/pages/login_screen.dart';
 class SharedPreferencesSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    authBloc.restoreSession();
+
     return MaterialApp(
       title: 'Login Demo',
       theme: ThemeData(

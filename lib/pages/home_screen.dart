@@ -14,15 +14,30 @@ class HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("Home Screen"),
       ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: bloc.logoutUser,
-          child: Text(
-            'Logout',
-            style: TextStyle(color: Colors.white),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+              child: Text(
+            "E-mail: ${bloc.userAuthentite().email}",
+            style: TextStyle(color: Colors.black),
+          )),
+          Center(
+              child: Text(
+            "Token: ${bloc.userAuthentite().token}",
+            style: TextStyle(color: Colors.black),
+          )),
+          Center(
+            child: RaisedButton(
+              onPressed: bloc.logoutUser,
+              child: Text(
+                'Logout',
+                style: TextStyle(color: Colors.white),
+              ),
+              color: Colors.blue,
+            ),
           ),
-          color: Colors.blue,
-        ),
+        ],
       ),
     );
   }

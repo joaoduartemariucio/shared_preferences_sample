@@ -39,6 +39,7 @@ Widget loadingIndicator(LoginBloc bloc) => StreamBuilder<bool>(
         );
       },
     );
+
 Widget emailField(LoginBloc bloc) => StreamBuilder<String>(
       stream: bloc.email,
       builder: (context, snap) {
@@ -52,6 +53,7 @@ Widget emailField(LoginBloc bloc) => StreamBuilder<String>(
         );
       },
     );
+
 Widget passwordField(LoginBloc bloc) => StreamBuilder<String>(
     stream: bloc.password,
     builder: (context, snap) {
@@ -62,6 +64,7 @@ Widget passwordField(LoginBloc bloc) => StreamBuilder<String>(
             labelText: 'Password', hintText: 'Password', errorText: snap.error),
       );
     });
+
 Widget submitButton(LoginBloc bloc) => StreamBuilder<bool>(
       stream: bloc.submitValid,
       builder: (context, snap) {
